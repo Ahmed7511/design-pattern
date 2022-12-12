@@ -4,22 +4,13 @@
 
        private static $instance;
 
-       private static array $data = [];
-      
-       public function __construct()
-       {
-        self::$data['db'] = 'my_db';
-        self::$data['host'] = 'my_host'; 
-        self::$data['password'] = 'my_password' ;
-       }
-       
        /**
         *  instanciate my class 
         *
-        * @return @new class
+        * @return @new instance
         * 
         */
-       private static function init() : Config
+       public static function init() : Config
         {
             if(!self::$instance){
                 echo ' my instance !' ;
@@ -28,15 +19,7 @@
 
             return self::$instance ;
         }
-
-        public static function getData(string $key) : string
-        {
-                   self::init();
-            return self::$data[$key] ?? 'null' ;
-        }
   }
 
-  var_dump(Config::getData('db') );
-  var_dump(Config::getData('host') );
-  var_dump(Config::getData('host') );
-  var_dump(Config::getData('password') );
+  var_dump(Config::init() );
+  var_dump(Config::init() );
